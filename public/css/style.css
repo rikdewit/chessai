@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#myBoard{
+    margin: 0;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.boardContainer{
+    height: 100vw;
+    width: 70vmin;
+    overflow-wrap: break-word;
+}

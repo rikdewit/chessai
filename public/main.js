@@ -5,6 +5,8 @@ var $fen = $('#fen')
 var $pgn = $('#pgn')
 
 
+
+
 socket = io(window.location.host);
 
 socket.on("connect", () => {
@@ -23,6 +25,8 @@ socket.on("move", (move) => {
     updateStatus();
 
 })
+
+
 
 
 var config = {
@@ -109,6 +113,10 @@ function updateStatus() {
 }
 
 
+
 board = Chessboard('myBoard', config)
 
 updateStatus()
+
+
+window.addEventListener("resize", () => board.resize())
