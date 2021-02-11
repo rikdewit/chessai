@@ -3,12 +3,13 @@ socket = io(window.location.host);
 
 socket.on("connect", () => {
     console.log("connected")
-    socket.on("test", (data)=> {
-        console.log(data);
-        socket.emit("hello", "hello!")
-    });
+
   });
 
+  socket.on("test", (data)=> {
+      console.log(data);
+      socket.emit("hello", "hello!")
+  });
 
 
 var config = {
