@@ -25,6 +25,11 @@ io.sockets.on('connection', (socket) => {
         updateStatus(game);
     });
 
+    socket.on("reset", () => {
+        game.reset();
+        updateStatus(game)
+    });
+
 });
 
 
@@ -56,6 +61,7 @@ function updateStatus(game) {
         }
     }
     console.log(game.pgn());
+    console.log(status);
 
 }
 

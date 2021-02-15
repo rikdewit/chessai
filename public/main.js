@@ -76,7 +76,7 @@ function onDrop(source, target) {
 // update the board position after the piece snap
 // for castling, en passant, pawn promotion
 function onSnapEnd() {
-    board.position(game.fen())
+    updateBoard();
 }
 
 function updateStatus() {
@@ -112,6 +112,9 @@ function updateStatus() {
     $pgn.html(game.pgn())
 }
 
+function updateBoard() {
+    board.position(game.fen());
+}
 
 
 board = Chessboard('myBoard', config)
@@ -120,3 +123,13 @@ updateStatus()
 
 
 window.addEventListener("resize", () => board.resize())
+
+let resetButton = document.querySelector(".resetButton")
+let sideButton = document.querySelector(".sideButton")
+
+resetButton.addEventListener("click", (event) => {
+    socket.emit("reset");
+    game.reset();
+    updateBoard();
+    updateStatus();
+})
