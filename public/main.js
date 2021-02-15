@@ -28,7 +28,7 @@ socket.on("move", (move) => {
 var config = {
     pieceTheme: 'img/chesspieces/wikipedia/{piece}.png',
     position: 'start',
-    snapSpeed: 0,
+    snapSpeed: 0, //CAUTION: board updates after snapping is done, will cause trouble when response move comes before snapEnd
     draggable: true,
     onDragStart: onDragStart,
     onDrop: onDrop,
