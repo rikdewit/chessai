@@ -6,32 +6,56 @@ const { Chess } = require('chess.js')
 
 io.sockets.on('connection', (socket) => {
     console.log('We have a new client: ' + socket.id);
-    socket.emit('test', "hello world!")
-    socket.on("hello", (data) => console.log(data));
 
     const game = new Chess();
-    // const moves = chess.moves()
-    // const move = moves[Math.floor(Math.random() * moves.length)]
-    // chess.move(move)
     socket.on("move", (move) => {
+
         game.move(move);
         updateStatus(game);
 
 
         const moves = game.moves()
         const response = moves[Math.floor(Math.random() * moves.length)]
+
         socket.emit("move", response);
         game.move(response);
         updateStatus(game);
+
     });
 
-    socket.on("reset", () => {
+    socket.on("reset", (side) => {
         game.reset();
-        updateStatus(game)
+        updateStatus(game);
+        if (side == "black") {
+            const moves = game.moves()
+            const response = moves[Math.floor(Math.random() * moves.length)]
+            setTimeout(() => {
+                socket.emit("move", response);
+                game.move(response);
+                updateStatus(game);
+            }, 1000)
+        }
+
+
+    });
+
+    socket.on("changeSide", (side) => {
+        game.reset();
+        updateStatus(game);
+        if (side == "black") {
+            const moves = game.moves()
+            const response = moves[Math.floor(Math.random() * moves.length)]
+            setTimeout(() => {
+                socket.emit("move", response);
+                game.move(response);
+                updateStatus(game);
+            }, 1000)
+        }
+
+
     });
 
 });
-
 
 function updateStatus(game) {
     var status = ''

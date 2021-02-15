@@ -14,16 +14,12 @@ socket.on("connect", () => {
 
 });
 
-socket.on("test", (data) => {
-    console.log(data);
-    socket.emit("hello", "hello!")
-});
 
 socket.on("move", (move) => {
     console.log("bot", move);
     game.move(move);
     updateStatus();
-
+    updateBoard();
 })
 
 
@@ -32,6 +28,7 @@ socket.on("move", (move) => {
 var config = {
     pieceTheme: 'img/chesspieces/wikipedia/{piece}.png',
     position: 'start',
+    snapSpeed: 0,
     draggable: true,
     onDragStart: onDragStart,
     onDrop: onDrop,
@@ -70,14 +67,17 @@ function onDrop(source, target) {
         socket.emit('move', move);
     }
 
-    updateStatus()
+    updateStatus();
 }
 
 // update the board position after the piece snap
 // for castling, en passant, pawn promotion
 function onSnapEnd() {
+    console.log("snapend")
     updateBoard();
 }
+
+
 
 function updateStatus() {
     var status = ''
@@ -119,7 +119,7 @@ function updateBoard() {
 
 board = Chessboard('myBoard', config)
 
-updateStatus()
+updateStatus();
 
 
 window.addEventListener("resize", () => board.resize())
@@ -128,8 +128,19 @@ let resetButton = document.querySelector(".resetButton")
 let sideButton = document.querySelector(".sideButton")
 
 resetButton.addEventListener("click", (event) => {
-    socket.emit("reset");
+    let side = board.orientation();
+    socket.emit("reset", side);
     game.reset();
     updateBoard();
     updateStatus();
 })
+
+sideButton.addEventListener("click", (event) => {
+    game.reset();
+
+    let side = board.orientation("flip");
+    socket.emit("changeSide", side);
+
+    updateBoard();
+    updateStatus();
+});
