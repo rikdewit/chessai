@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 let io;
 
-if(process.env.NODE_ENV === "development"){
+if (process.env.NODE_ENV === "development") {
   let port = process.env.PORT || 3000
   let server = app.listen(port, listen);
 
