@@ -64,6 +64,8 @@ def bitboard_to_fen(bitboard):
     reverse_piece_dict = reverse_dict(piece_dict)
     reverse_castling_dict = reverse_dict(castling_dict)
     fen = ""
+    piece = ""
+
     # pieces
     for y in range(8):
         count = 0
@@ -74,15 +76,19 @@ def bitboard_to_fen(bitboard):
                 bit = bitboard[y*12*8+x*12+p]
                 if(bit == 1):
                     empty = False
-                    fen += reverse_piece_dict[p]
-
+                    piece = reverse_piece_dict[p]
+                    
             if empty:
                 count += 1
-            if (last_empty == True and not empty) or x == 7:
+            if (last_empty and (not empty)) or x == 7:
                 if(count > 0):
                     fen += str(count)
                     count = 0
             last_empty = empty
+
+            if(not empty):
+                fen += piece
+
 
         if(y < 7):
             fen += "/"
