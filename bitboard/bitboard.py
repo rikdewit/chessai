@@ -7,7 +7,7 @@ board = chess.Board()
 
 
 start_position = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
-position = "rnb1k1nr/pppp1ppp/8/3Pp3/3bP3/2N2N2/PPP2qPP/R1BQKB1R w KQkq - 0 1"
+position = "rnb1k1nr/pppp1ppp/8/3Pp3/3bP3/2N2N2/PPP2qPP/R1BQKB1R w - - 0 1"
 # Uppercase: white
 # Lowercase: black
 piece_dict = {"P": 0, "N": 1, "B": 2, "R": 3, "Q": 4, "K": 5,
@@ -50,7 +50,8 @@ def fen_to_bitboard(fen_input):
 
     castling = [0, 0, 0, 0]
     for c in castling_rights:
-        castling[castling_dict[c]] = 1
+        if(c != "-"):
+            castling[castling_dict[c]] = 1
 
     for bit in castling:
         bitboard.append(bit)
