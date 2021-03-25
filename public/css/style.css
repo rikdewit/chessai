@@ -1,18 +1,37 @@
-body{
+#myBoard {
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#myBoard{
-    margin: 0;
-    margin-top: 3rem;
+    margin-top: 5em;
     width: 100%;
 }
 
-.boardContainer{
-    height: 100vw;
+.boardContainer {
     width: 70vmin;
     overflow-wrap: break-word;
+    margin: auto;
 }
+
+#brownBox {
+    background-color: blanchedalmond;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 15vw;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+}
+
+#grayBox {
+    background-color: lightgray;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+}
+
+#navbarItem {
+    color: white;
+}
+
+
+
+
+

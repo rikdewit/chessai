@@ -10,16 +10,15 @@
 }
 
 .square-55d63 {
-  float: left;
-  position: relative;
-
-  /* disable any native browser highlighting */
-  -webkit-touch-callout: none;
+    float: left;
+    position: relative;
+    /* disable any native browser highlighting */
+    -webkit-touch-callout: none;
     -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    /*-khtml-user-select: none;*/
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .white-1e1d7 {

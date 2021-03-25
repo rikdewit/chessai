@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,26 +17,90 @@
     <script src="main.js" defer></script>
     <link rel="stylesheet" type="text/css" href="css/chessboard-1.0.0.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <title>Chess AI</title>
 </head>
 
-<body>
-    <div class="boardContainer">
-        <div id="myBoard"></div>
-        <button class="resetButton">Reset</button>
-        <button class="sideButton">Flip Board</button>
 
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"> Chess AI</a>
+                <a class="navbar-nav" id="navbarItem" href="aboutUs.html">About us</a>
+            </div>
+        </nav>
+    </header>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="boardContainer">
+                <div id="myBoard"></div>
+            </div> 
+        </div>
+        <div class="col-6">
+            <div class="col-12" id="brownBox">
+                <p>Gestolen Schaakstukken speler</p>
+            </div>
+
+            <div class="col-12" id="grayBox">
+                <label>Status:</label>
+                <div id="status"></div>
+                <label>FEN:</label>
+                <div id="fen"></div>
+                <label>PGN:</label>
+                <div id="pgn"></div>
+            </div>
+
+            <div class="col-12" id="brownBox">
+                <p>Gestolen Schaakstukken AI</p>
+            </div>
+
+        </div>
+
+        <div class="col-1"></div>
+        <div class="col-1">
+            <button type="button" class="resetButton"> Reset </button>
+        </div>
+        <div class="col-1"></div>
+
+        <div class="col-1"></div>
+        <div class="col-1">
+            <button type="button" class="sideButton"> Switch sides </button>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-6"></div>
+    </div>
+</div>
+    <!--<div class="boardContainer">
+
+        <div id="myBoard"></div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-3">
+                <button class="resetButton">Reset</button>
+            </div>
+            <div class="col-3">
+                <button class="sideButton">Flip Board</button>
+            </div>
+        </div>
 
         <br>
-        <label>Status:</label>
-        <div id="status"></div>
-        <label>FEN:</label>
-        <div id="fen"></div>
-        <label>PGN:</label>
-        <div id="pgn"></div>
-    </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-6">
+                <label>Status:</label>
+                <div id="status"></div>
+                <label>FEN:</label>
+                <div id="fen"></div>
+                <label>PGN:</label>
+                <div id="pgn"></div>
+            </div>
+        </div>
 
+     </div>
+        -->
 
 
 </body>
