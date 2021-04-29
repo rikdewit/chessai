@@ -1,6 +1,6 @@
 #myBoard {
     margin: 0;
-    margin-top: 5em;
+    margin-top: 2em;
     width: 100%;
 }
 
@@ -17,18 +17,38 @@
     height: 15vw;
     border-style: solid;
     border-width: 2px;
-    border-radius: 2px;
+    border-radius: 5px;
+    border-color: blanchedalmond;
+    box-shadow: 5px 5px grey;
 }
 
 #grayBox {
     background-color: lightgray;
     border-style: solid;
     border-width: 2px;
-    border-radius: 2px;
+    border-radius: 5px;
+    border-color: lightgray;
+    box-shadow: 5px 5px grey;
 }
 
 #navbarItem {
     color: white;
+}
+.resetButton {
+    background-color: lightgray;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: lightgray;
+    box-shadow: 2px 2px grey;
+}
+.sideButton {
+    background-color: lightgray;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: lightgray;
+    box-shadow: 2px 2px grey;
 }
 
 
